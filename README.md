@@ -2,8 +2,12 @@
 此工具可以获取您的 Minecraft Java 版正版登录Token。
 ## 什么是 Minecraft 访问令牌？
 Minecraft 正版验证Token用于验证您是否为正版验证。
+<br>
 例如，除了官方的 Minecraft 启动器启动 Minecraft Java 版本外，您还可以通过 java -jar 启动游戏。
-在 java -jar 启动参数中，minecraft 验证令牌就是其中之一。也就是说，您可以在没有启动器的情况下启动正版 Minecraft。
+<br>
+在 java -jar 启动参数中，minecraft 验证令牌就是其中之一。
+<br>
+也就是说，您可以在没有启动器的情况下启动**正版**Minecraft。
 ## 我的世界是怎样进行正版验证的？
 在2020年后，mojang账号被迁移至微软，您以此用微软账号进行正版登录。
 ### **1. 微软 OAuth2 认证**
@@ -15,7 +19,7 @@ https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize?client_id=0000
 **请求参数**：
 | 参数名 | 说明 | 示例值 |
 |--------|------|--------|
-| `client_id` | OAuth 客户端 ID | 无 |
+| `client_id` | OAuth 客户端 ID | 无法提供示例值 |
 | `response_type` | 固定为 `code` | `code` |
 | `redirect_uri` | 回调地址 | `https://login.live.com/oauth20_desktop.srf` |
 | `scope` | 请求的权限范围 | `XboxLive.signin offline_access` |
@@ -35,7 +39,7 @@ POST https://login.microsoftonline.com/consumers/oauth2/v2.0/token
 **请求参数（HTTP Body, x-www-form-urlencoded）**：
 | 参数名 | 说明 | 示例值 |
 |--------|------|--------|
-| `client_id` | OAuth 客户端 ID | `00000000402b5328` |
+| `client_id` | OAuth 客户端 ID | 无法提供示例值 |
 | `code` | 上一步获取的 `code` | `M.R3_BAY.123456...` |
 | `grant_type` | 固定为 `authorization_code` | `authorization_code` |
 | `redirect_uri` | 必须与上一步一致 | `https://login.live.com/oauth20_desktop.srf` |
