@@ -15,7 +15,7 @@ https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize?client_id=0000
 **请求参数**：
 | 参数名 | 说明 | 示例值 |
 |--------|------|--------|
-| `client_id` | Minecraft 的 OAuth 客户端 ID | `00000000402b5328` |
+| `client_id` | OAuth 客户端 ID | 无 |
 | `response_type` | 固定为 `code` | `code` |
 | `redirect_uri` | 回调地址 | `https://login.live.com/oauth20_desktop.srf` |
 | `scope` | 请求的权限范围 | `XboxLive.signin offline_access` |
@@ -207,7 +207,7 @@ java -Dfile.encoding=COMPAT ...(一堆因Minecraft Jar文件位置而不同的�
 echo 游戏已退出。
 pause
 ```
-在java启动命令中，--username参数为用户名，--uuid为用户的uuid，--accessToken为用户的我的世界正版验证token。
+在java启动命令中，`--username`参数为用户名，`--uuid`为用户的uuid，--accessToken为用户的我的世界正版验证token。
 <br>
 正常情况下，用户无法直接查看正版验证token，因为其中间被"F"替换。因此，直接启动此文件不会进行正版登录，即便您可以打开游戏。
 <br>
