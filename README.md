@@ -113,7 +113,7 @@ POST https://xsts.auth.xboxlive.com/xsts/authorize
   "DisplayClaims": { "xui": [{ "uhs": "userhash" }] }
 }
 ```
-参数格式与上一步相同。
+参数格式与上一步相同，token有效期24小时。
 
 ---
 
@@ -137,7 +137,7 @@ POST https://api.minecraftservices.com/authentication/login_with_xbox
   "expires_in": 86400
 }
 ```
-其中，"access_token"为我的世界正版验证参数。
+其中，"access_token"为我的世界正版验证token，有效期24小时。
 因本工具仅获取我的世界登录token且下两步非启动器的工作，下面两步不作解释。
 
 ---
