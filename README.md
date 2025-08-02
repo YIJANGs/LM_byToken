@@ -132,12 +132,13 @@ POST https://api.minecraftservices.com/authentication/login_with_xbox
 ```json
 {
   "username": "PlayerUUID",
-  "access_token": "minecraft_access_token",  // 用于后续 API
+  "access_token": "minecraft_access_token",
   "token_type": "Bearer",
   "expires_in": 86400
 }
 ```
 其中，"access_token"为我的世界正版验证token，有效期24小时。
+<br>
 因本工具仅获取我的世界登录token且下两步非启动器的工作，下面两步不作解释。
 
 ---
@@ -212,8 +213,9 @@ pause
 <br>
 如果您将上一步获取的我的世界正版验证token替换掉，并启动此.bat文件，您可以发现，您成功正版登录了！
 
-## 我是否应该怀疑这个工具存在后门？
-当然可以！这是您的权利。<br>
+## 我是否可以怀疑这个工具存在后门？
+当然可以！这是您的权利。
+<br>
 不过，我仍由衷地希望您检查仓库的src\Java\McTokenGetTool\src文件夹下的Java代码和src\Python文件夹下的python代码，
 <br>
 正常情况下，您不会发现您的任何token被传递到不明的URL。
