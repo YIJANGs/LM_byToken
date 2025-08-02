@@ -1,7 +1,7 @@
 # 我的世界正版验证Token获取工具
-此工具可以获取您的 Minecraft Java 版访问令牌。
+此工具可以获取您的 Minecraft Java 版正版登录Token。
 ## 什么是 Minecraft 访问令牌？
-Minecraft 令牌用于验证您是否真正登录。
+Minecraft 正版验证Token用于验证您是否为正版验证。
 例如，除了官方的 Minecraft 启动器启动 Minecraft Java 版本外，您还可以通过 java -jar 启动游戏。
 在 java -jar 启动参数中，minecraft 验证令牌就是其中之一。也就是说，您可以在没有启动器的情况下启动正版 Minecraft。
 ## 我的世界是怎样进行正版验证的？
