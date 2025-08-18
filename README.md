@@ -3,9 +3,9 @@
 ## 什么是 Minecraft 访问令牌？
 Minecraft 正版验证Token用于验证您是否为正版验证。
 <br>
-例如，除了官方的 Minecraft 启动器启动 Minecraft Java 版本外，您还可以通过 java -jar 启动游戏。
+例如，除了官方的 Minecraft 启动器启动 Minecraft Java 版本外，您还可以通过 `java -jar` 启动游戏。
 <br>
-在 java -jar 启动参数中，minecraft 验证令牌就是其中之一。
+在 `java -jar` 启动参数中，minecraft 验证令牌就是其中之一。
 <br>
 也就是说，您可以在**没有**启动器的情况下启动**正版**Minecraft。
 ## 我的世界是怎样进行正版验证的？
@@ -220,7 +220,7 @@ pause
 ## 我是否可以怀疑这个工具存在后门？
 当然可以！这是您的权利。
 <br>
-不过，我仍由衷地希望您检查仓库的src\Java\McTokenGetTool\src文件夹下的Java代码和src\Python文件夹下的python代码，
+不过，我仍由衷地希望您检查仓库的`src\Java\McTokenGetTool\src`文件夹下的Java代码和`src\Python`文件夹下的python代码，
 <br>
 正常情况下，您不会发现您的任何token被传递到不明的URL。
 
