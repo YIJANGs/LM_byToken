@@ -1,5 +1,5 @@
 # LM_byToken (Launch Minecraft by Token / 通过Token启动正版Minecraft)
-此工具可以获取您的Minecraft正版登录Token并启动Minecraft。
+此工具可以获取您的Minecraft正版登录Token并启动Minecraft。<br>
 🟥Tip: 本工具暂未转型，即仍停留在只能获取您的我的世界正版登录Token的版本，不能启动Minecraft。
 ## 什么是 Minecraft 访问令牌？
 Minecraft 正版验证Token用于验证您是否为正版验证。
