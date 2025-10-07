@@ -75,7 +75,7 @@ https://login.live.com/oauth20_desktop.srf?code=......&lc=2052
 或
 https://login.live.com/oauth20_desktop.srf?code=...
 ```
-请将"code="后的内容复制到命令行，不出意外的话，工具会启动Minecraft，并使用您刚刚登录的Microsoft账号登录Minecraft。
+请将"code="后的内容（或"code="后、"&lc="前的内容）复制到命令行，不出意外的话，工具会启动Minecraft，并使用您刚刚登录的Microsoft账号登录Minecraft。
 
 
 
