@@ -37,11 +37,14 @@ Minecraft 正版验证Token用于验证您是否为正版验证。
 > 即您现在所在的目录中存在字符串".minecraft/versions"，在`versions`文件夹下，若您下载过任意版本的Minecraft，您会在这个文件夹下
 > 看到一些文件夹，这些文件夹的名称就是您所下的游戏版本。
 > 接下来，请打开您希望启动的Minecraft版本对应的文件夹，复制文件夹路径，并粘贴至`gameDir`的参数中。
+
 **gameVersion**
 > **在您打开的版本文件夹下，有一个`.jar`扩展名的文件，复制文件名（不包含".jar"），粘贴至上一步描述的`gameVersion`参数中。**
+
 **assetsDir**
 > 返回至`.minecraft`文件夹，不出意外的话，您会看到一个名为`assets`文件夹（其与`versions`在同一目录下），请直接复制您当前所在的目录路径，
 >并粘贴至`tokens.json`的`assetsDir`参数中。
+
 **javaDir**
 > 本参数为启动Minecraft所使用的`java.exe`文件所在目录（路径不包含"java.exe"），若您未手动下载过java，可以在第三方启动器（如PCL、HMCL）
 > 的设置中找到`java.exe`文件所在的目录，复制它至`tokens.json`的`javaDir`参数中。
