@@ -76,21 +76,29 @@ def getOptionsJson():
     options.close()
     return options_data
 
+def checkUser(t):
+    if not (t["user"]["name"] and t["user"]["uuid"]):
+        return False
+    return True
+
 
 if __name__ == "__main__":
     
     tokens_data = getTokensJson()
     options_data = getOptionsJson()
 
+    if not checkUser(tokens_data):
+        print("No Username and Useruuid found.")
+        exit(2)
+
+    if not checkDir(tokens_data):
+        print("Game Directory not set. Please set gameDir in tokens.json")
+        exit(2)
+
     tokens_data = checkTokens(tokens_data, options_data)
 
     if options_data['gettoken_thenLaunch']:
-        if not checkDir(tokens_data):
-            print("Game Directory not set. Please set gameDir in tokens.json")
-            exit(2)
-        if not (tokens_data["user"]["name"] and tokens_data["user"]["uuid"]):
-            print("User info not set. Please launch Minecraft once to set user info.")
-            exit(2)
+        
         launchMinecraft(tokens_data["Dirs"],
                         tokens_data["gameVersion"],
                         tokens_data['acc_token'],
