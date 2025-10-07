@@ -32,6 +32,7 @@ Minecraft 正版验证Token用于验证您是否为正版验证。
 - 其中，`acc_token`参数为您的Minecraft登录token而非Microsoft登录token；`ref_token`参数为您的Microsoft登录token，若您不知道您的登录token，可以直接留空。
 - `gameVersion`参数为您要启动的Minecraft版本（名称），这一参数为您的Minecraft`.jar`文件的名称，不包含".jar"。
 - `Dirs`参数中为此工具需要（或启动Minecraft需要）的文件路径，以下是获取方法及示例。
+
 **gameDir**
 > 在您的Minecraft游戏目录下（或第三方启动器如PCL、HMCL根目录下），找到`.minecraft`文件夹，并打开`.minecraft/versions`文件夹，
 > 即您现在所在的目录中存在字符串".minecraft/versions"，在`versions`文件夹下，若您下载过任意版本的Minecraft，您会在这个文件夹下
