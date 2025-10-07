@@ -2,11 +2,11 @@
 此工具可以获取您的Minecraft正版登录Token并启动Minecraft。<br>
 ## 什么是 Minecraft 访问令牌？
 Minecraft 正版验证Token用于验证您是否为正版验证。
-<br>
-例如，除了官方的 Minecraft 启动器启动 Minecraft Java 版本外，您还可以通过 `java -jar` 启动游戏。
-<br>
-在 `java -jar` 启动参数中，minecraft 验证令牌就是其中之一。
-<br>
+
+例如，除了官方的 Minecraft 启动器启动 Minecraft Java 版本外，您还可以通过命令行启动游戏。
+
+在命令行启动参数中，minecraft 验证令牌就是其中之一。
+
 也就是说，您可以在**没有**启动器的情况下启动**正版**Minecraft。
 
 ## 如何使用这个工具？
@@ -49,6 +49,7 @@ Minecraft 正版验证Token用于验证您是否为正版验证。
 **javaDir**
 > 本参数为启动Minecraft所使用的`java.exe`文件所在目录（路径不包含"java.exe"），若您未手动下载过java，可以在第三方启动器（如PCL、HMCL）
 > 的设置中找到`java.exe`文件所在的目录，复制它至`tokens.json`的`javaDir`参数中。
+
 不出意外的话，您现在的`tokens.json`内容应该大致为以下内容：
 ```json
 {
@@ -72,9 +73,9 @@ Minecraft 正版验证Token用于验证您是否为正版验证。
 ```
 https://login.live.com/oauth20_desktop.srf?code=......&lc=2052
 或
-https://login.live.com/oauth20_desktop.srf?code=...
+https://login.live.com/oauth20_desktop.srf?code=......
 ```
-请将"code="后的内容复制到命令行，不出意外的话，工具会启动Minecraft，并使用您刚刚登录的Microsoft账号登录Minecraft。
+请将"code="后的内容（或"......"省略的内容）复制到命令行，不出意外的话，工具会启动Minecraft，并使用您刚刚登录的Microsoft账号登录Minecraft。
 
 
 
