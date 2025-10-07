@@ -2,11 +2,11 @@
 此工具可以获取您的Minecraft正版登录Token并启动Minecraft。<br>
 ## 什么是 Minecraft 访问令牌？
 Minecraft 正版验证Token用于验证您是否为正版验证。
-<br>
-例如，除了官方的 Minecraft 启动器启动 Minecraft Java 版本外，您还可以通过 `java -jar` 启动游戏。
-<br>
-在 `java -jar` 启动参数中，minecraft 验证令牌就是其中之一。
-<br>
+
+例如，除了官方的 Minecraft 启动器启动 Minecraft Java 版本外，您还可以通过命令行启动游戏。
+
+在命令行启动参数中，minecraft 验证令牌就是其中之一。
+
 也就是说，您可以在**没有**启动器的情况下启动**正版**Minecraft。
 
 ## 如何使用这个工具？
