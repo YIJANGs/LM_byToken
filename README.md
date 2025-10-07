@@ -49,6 +49,7 @@ Minecraft 正版验证Token用于验证您是否为正版验证。
 **javaDir**
 > 本参数为启动Minecraft所使用的`java.exe`文件所在目录（路径不包含"java.exe"），若您未手动下载过java，可以在第三方启动器（如PCL、HMCL）
 > 的设置中找到`java.exe`文件所在的目录，复制它至`tokens.json`的`javaDir`参数中。
+
 不出意外的话，您现在的`tokens.json`内容应该大致为以下内容：
 ```json
 {
