@@ -1,0 +1,7 @@
+{
+    "gettoken_thenSaveToken": true,
+    "gettoken_thenLaunch": true,
+    "gettoken_thenEchotoken": true,
+    "launch_thenRefreshToken": false,
+    "always_refreshToken": true
+}

@@ -1,6 +1,6 @@
 import requests
 
-def retoken(re_token):
+def refreshtoken(re_token):
     Reurl = "https://login.live.com/oauth20_token.srf"
     headers = {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -88,4 +88,4 @@ def start(ms_token):
     # 4. Minecraft 认证
     mc_token = get_minecraft_token(xsts_token, userhash)
 
-    print("Minecraft Token:", mc_token)
+    return mc_token
