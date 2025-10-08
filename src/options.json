@@ -1,7 +1,8 @@
 {
     "gettoken_thenSaveToken": true,
     "gettoken_thenLaunch": true,
-    "gettoken_thenEchotoken": true,
+    "gettoken_thenEchotoken": false,
     "launch_thenRefreshToken": false,
-    "always_refreshToken": true
+    "always_refreshToken": true,
+    "launch_thenCleanbat": true
 }

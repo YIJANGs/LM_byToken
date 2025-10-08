@@ -12,12 +12,19 @@ def savetokens(tokens_data, token_file="./tokens.json"):
     with open(token_file, 'w', encoding='utf-8') as f:
         json.dump(tokens_data, f, indent=4, ensure_ascii=False)
 
-def gettoken():
+def gettoken(options):
+    from urllib.parse import urlparse, parse_qs
     print("请访问以下 URL 获取 code：")
     print("https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize?client_id=00000000402b5328&response_type=code&redirect_uri=https://login.live.com/oauth20_desktop.srf&scope=XboxLive.Signin%20offline_access&prompt=select_account")
-    code = input("请输入返回的 code: ")
+    url = input("请输入跳转后的网址: ")
+    p_url = urlparse(url)
+    qp = parse_qs(p_url.query)
+    code = qp["code"][0]
     A, B = Gtoken.get_microsoft_token(code)
     A = Gtoken.start(A)
+    if options['gettoken_thenEchotoken']:
+        print("Access Token: " + A)
+        print("Refresh Token: " + B)
     return A, B
 
 def launchMinecraft(dir, acc_token, username, uuid, options):
@@ -25,7 +32,7 @@ def launchMinecraft(dir, acc_token, username, uuid, options):
     launcher.launchMinecraft()
 
 def checkDir(t):
-    if t["Dirs"]["gameDir"] == '' or t["Dirs"]["assetsDir"] == '' or t["Dirs"]["javaDir"] == '':
+    if t["Dirs"]["versionDir"] == '' or t["Dirs"]["assetsDir"] == '' or t["Dirs"]["javaDir"] == '':
         return False
     return True
 
@@ -54,12 +61,10 @@ def checkTokens(t, options):
         if t["acc_token"] != '':
             return t
         else:
-            acc_token, ref_token = gettoken()
+            acc_token, ref_token = gettoken(options)
             t['acc_token'] = acc_token
             t['ref_token'] = ref_token
-            if options['gettoken_thenEchotoken']:
-                print("Access Token: " + t['acc_token'])
-                print("Refresh Token: " + t['ref_token'])
+            
             if options['gettoken_thenSaveToken']:
                 savetokens(t)
             return t
@@ -97,6 +102,8 @@ if __name__ == "__main__":
 
     tokens_data = checkTokens(tokens_data, options_data)
 
+    #opthions
+
     if options_data['gettoken_thenLaunch']:
         
         launchMinecraft(tokens_data["Dirs"],
@@ -104,10 +111,16 @@ if __name__ == "__main__":
                         tokens_data['acc_token'],
                         tokens_data["user"]["name"],
                         tokens_data["user"]["uuid"])
+        
+    if options_data['launch_thenCleanbat']:
+        bat_clean = open("launch.bat", "w")
+        bat_clean.write("")
+        bat_clean.close()
             
     if options_data['launch_thenRefreshToken']:
-        tokens_data["acc_token"], tokens_data["ref_token"] = gettoken()
+        tokens_data["acc_token"], tokens_data["ref_token"] = gettoken(options_data)
         savetokens(tokens_data)
+
 
         
 

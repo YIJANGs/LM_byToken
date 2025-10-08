@@ -11,8 +11,10 @@ Minecraft 正版验证Token用于验证您是否为正版验证。
 
 ## 如何使用这个工具？
 - 下载仓库的zip压缩包并解压。
-### 配置`tokens.json`
-在根目录下的`tokens.json`文件中输入基本内容，以下是格式参考：
+### 配置参数
+> 在解压后的`src`文件夹中的`tokens.json`文件为此工具所需参数的存储文件。
+
+以下是其内容即填写格式：
 ```json
 {
     "user": {
@@ -23,24 +25,25 @@ Minecraft 正版验证Token用于验证您是否为正版验证。
     "ref_token": "<您的刷新token>",
     "gameVersion": "<您要启动的游戏版本，如1.20.4>",
     "Dirs": {
-        "gameDir": "<您的Minecraft .jar文件所在的目录>",
+        "versionDir": "<您要启动的Minecraft版本文件夹所在的目录>",
         "assetsDir": "<您的assets文件夹所在的目录>",
         "javaDir": "<您用于启动Minecraft的java.exe文件所在的目录>"
     }
 }
 ```
+- 其中，`user`参数中的`name`为您的Minecraft档案名；`uuid`为您的Minecraft账号的uuid，**不包含"-"连字符**，可在[这里](https://mcuuid.net)查询。
 - 其中，`acc_token`参数为您的Minecraft登录token而非Microsoft登录token；`ref_token`参数为您的Microsoft登录token，若您不知道您的登录token，可以直接留空。
-- `gameVersion`参数为您要启动的Minecraft版本（名称），这一参数为您的Minecraft`.jar`文件的名称，不包含".jar"。
+- `gameVersion`参数为您要启动的Minecraft版本（名称），这一参数为您的版本文件夹所在的目录，或您的Minecraft`.jar`文件的名称，不包含".jar"。
 - `Dirs`参数中为此工具需要（或启动Minecraft需要）的文件路径，以下是获取方法及示例。
 
 **gameDir**
 > 在您的Minecraft游戏目录下（或第三方启动器如PCL、HMCL根目录下），找到`.minecraft`文件夹，并打开`.minecraft/versions`文件夹，
 > 即您现在所在的目录中存在字符串".minecraft/versions"，在`versions`文件夹下，若您下载过任意版本的Minecraft，您会在这个文件夹下
 > 看到一些文件夹，这些文件夹的名称就是您所下的游戏版本。
-> 接下来，请打开您希望启动的Minecraft版本对应的文件夹，复制文件夹路径，并粘贴至`gameDir`的参数中。
+> 请直接复制版本文件夹所在的路径（即`(省略号)../.minecraft/versions`），并粘贴至`versionDir`的参数中。
 
 **gameVersion**
-> **在您打开的版本文件夹下，有一个`.jar`扩展名的文件，复制文件名（不包含".jar"），粘贴至上一步描述的`gameVersion`参数中。**
+> 停留在`versions`文件夹内，假如您下载过Minecraft，此时您会看到一个或一个以上的文件夹，复制您要启动的版本对应的版本文件夹名称，并粘贴到`gameDir`参数内。
 
 **assetsDir**
 > 返回至`.minecraft`文件夹，不出意外的话，您会看到一个名为`assets`文件夹（其与`versions`在同一目录下），请直接复制您当前所在的目录路径，
@@ -61,7 +64,7 @@ Minecraft 正版验证Token用于验证您是否为正版验证。
     "ref_token": "",
     "gameVersion": "1.21.1",
     "Dirs": {
-        "gameDir": "E:/Minecraft/.minecraft/versions/1.21.1",
+        "versionDir": "E:/Minecraft/.minecraft/versions",
         "assetsDir": "E:/Minecraft/.minecraft",
         "javaDir": "E:/java22/bin"
     }
@@ -69,16 +72,32 @@ Minecraft 正版验证Token用于验证您是否为正版验证。
 ```
 
 ### 启动工具
-使用python启动根目录下的`main.py`文件，如果您之前的token留空，工具会请求登录，打开网址并登录您的Microsoft账号，之后页面会跳转至一个**空白页面**（注意，这不是网络问题，而是正常情况），查看现在浏览器显示的网址，它应该是以下格式：
+使用python启动根目录下的`main.py`文件，如果您之前的token留空，工具会请求登录，打开网址并登录您的Microsoft账号，之后页面会跳转至一个**空白页面**（注意，这不是网络问题，而是正常情况），查看现在浏览器显示的网址，它应该大致为以下格式：
 ```
 https://login.live.com/oauth20_desktop.srf?code=......&lc=2052
 或
 https://login.live.com/oauth20_desktop.srf?code=......
 ```
-请将"code="后的内容（或"......"省略的内容）复制到命令行，不出意外的话，工具会启动Minecraft，并使用您刚刚登录的Microsoft账号登录Minecraft。
+请将此时的网址**直接**复制到命令行，不出意外的话，工具会启动Minecraft，并使用您刚刚登录的Microsoft账号登录Minecraft。
 
+### 进阶操作
+> 在解压后的`src`文件夹中的`options.json`文件为此工具的配置文件。
 
-
-
-
-
+以下是其**默认内容**：
+```json
+{
+    "gettoken_thenSaveToken": true,
+    "gettoken_thenLaunch": true,
+    "gettoken_thenEchotoken": false,
+    "launch_thenRefreshToken": false,
+    "always_refreshToken": true,
+    "launch_thenCleanbat": false
+}
+```
+- 其中，`true`和`false`为各个参数有且仅有的两个参数选项，分别表示“开”和“关”，代表其对应的选项的开关状态。
+- 其中，`gettoken_thenSaveToken`参数代表“获取token后保存token”，即任何情况下（包括第一次登录、刷新token等）获取的token是否保存至`tokens.json`文件（覆盖原有token）。
+- 其中，`gettoken_thenLaunch`参数代表“获取token后启动Minecraft”，即启动工具后第一次获取token（也许是登录，也许是刷新）后是否启动Minecraft。
+- 其中，`gettoken_thenEchotoken`参数代表“获取token后输出token”，即任何情况下（包括第一次登录、刷新token等）获取的token是否输出token。
+- 其中，`launch_thenRefreshToken`参数代表“启动Minecraft后是否刷新token”。
+- 其中，`always_refreshToken`参数代表“启动工具后是否直接刷新token”。
+- 其中，`launch_thenCleanbat`参数代表“启动Minecraft后是否清空`Launch.bat`文件”。
