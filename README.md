@@ -23,7 +23,7 @@ Minecraft 正版验证Token用于验证您是否为正版验证。
     },
     "acc_token": "<您的登录token>",
     "ref_token": "<您的刷新token>",
-    "gameVersion": "<您要启动的游戏版本，如1.20.4>",
+    "gameVersions": ["<您要启动的游戏版本，如1.20.4>，可以有多个值，程序会请求选择"],
     "Dirs": {
         "versionDir": "<您要启动的Minecraft版本文件夹所在的目录>",
         "assetsDir": "<您的assets文件夹所在的目录>",
@@ -33,7 +33,7 @@ Minecraft 正版验证Token用于验证您是否为正版验证。
 ```
 - 其中，`user`参数中的`name`为您的Minecraft档案名；`uuid`为您的Minecraft账号的uuid，**不包含"-"连字符**，可在[这里](https://mcuuid.net)查询。
 - 其中，`acc_token`参数为您的Minecraft登录token而非Microsoft登录token；`ref_token`参数为您的Microsoft登录token，若您不知道您的登录token，可以直接留空。
-- `gameVersion`参数为您要启动的Minecraft版本（名称），这一参数为您的版本文件夹所在的目录，或您的Minecraft`.jar`文件的名称，不包含".jar"。
+- `gameVersions`参数为您要启动的Minecraft版本（名称），这一参数为您的版本文件夹所在的目录，或您的Minecraft`.jar`文件的名称，不包含".jar"。
 - `Dirs`参数中为此工具需要（或启动Minecraft需要）的文件路径，以下是获取方法及示例。
 
 **gameDir**
@@ -42,8 +42,8 @@ Minecraft 正版验证Token用于验证您是否为正版验证。
 > 看到一些文件夹，这些文件夹的名称就是您所下的游戏版本。
 > 请直接复制版本文件夹所在的路径（即`(省略号)../.minecraft/versions`），并粘贴至`versionDir`的参数中。
 
-**gameVersion**
-> 停留在`versions`文件夹内，假如您下载过Minecraft，此时您会看到一个或一个以上的文件夹，复制您要启动的版本对应的版本文件夹名称，并粘贴到`gameDir`参数内。
+**gameVersions**
+> 停留在`versions`文件夹内，假如您下载过Minecraft，此时您会看到一个或一个以上的文件夹，复制您要启动的版本对应的版本文件夹名称，并粘贴到`gameVersions`参数内，需以英文双引号包围，如有多个版本，可以使用英文逗号分离。
 
 **assetsDir**
 > 返回至`.minecraft`文件夹，不出意外的话，您会看到一个名为`assets`文件夹（其与`versions`在同一目录下），请直接复制您当前所在的目录路径，
@@ -53,7 +53,7 @@ Minecraft 正版验证Token用于验证您是否为正版验证。
 > 本参数为启动Minecraft所使用的`java.exe`文件所在目录（路径不包含"java.exe"），若您未手动下载过java，可以在第三方启动器（如PCL、HMCL）
 > 的设置中找到`java.exe`文件所在的目录，复制它至`tokens.json`的`javaDir`参数中。
 
-不出意外的话，您现在的`tokens.json`内容应该大致为以下内容：
+不出意外的话，您现在的`tokens.json`内容应该大致为以下内容（`gameVersions`中的版本可能不一样）：
 ```json
 {
     "user": {
@@ -62,7 +62,13 @@ Minecraft 正版验证Token用于验证您是否为正版验证。
     },
     "acc_token": "",
     "ref_token": "",
-    "gameVersion": "1.21.1",
+    "gameVersions": [
+        "1.21.1",
+        "1.21.10",
+        "1.21.1-Fabric 0.16.10",
+        "1.2.1",
+        "b1.8"
+    ],
     "Dirs": {
         "versionDir": "E:/Minecraft/.minecraft/versions",
         "assetsDir": "E:/Minecraft/.minecraft",

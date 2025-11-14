@@ -27,8 +27,8 @@ def gettoken(options):
         print("Refresh Token: " + B)
     return A, B
 
-def launchMinecraft(dir, acc_token, username, uuid, options):
-    launcher = launch.Launch(dir, acc_token, username, uuid, options)
+def launchMinecraft(dir, versions, acc_token, username, uuid):
+    launcher = launch.Launch(dir, versions, acc_token, username, uuid)
     launcher.launchMinecraft()
 
 def checkDir(t):
@@ -86,6 +86,15 @@ def checkUser(t):
         return False
     return True
 
+def chooseVersion(versions):
+    if len(versions) == 1:
+        return versions[0]
+    else:
+        for i in range(len(versions)):
+            print(f"Type [{i}] to open {versions[i]}")
+        choice = int(input("Please choose the version index: "))
+        return versions[choice]
+
 
 if __name__ == "__main__":
     
@@ -100,6 +109,10 @@ if __name__ == "__main__":
         print("Game Directory not set. Please set gameDir in tokens.json")
         exit(2)
 
+    if tokens_data["gameVersions"] == []:
+        print("No game versions found. Please set gameVersions in tokens.json")
+        exit(2)
+
     tokens_data = checkTokens(tokens_data, options_data)
 
     #opthions
@@ -107,7 +120,7 @@ if __name__ == "__main__":
     if options_data['gettoken_thenLaunch']:
         
         launchMinecraft(tokens_data["Dirs"],
-                        tokens_data["gameVersion"],
+                        chooseVersion(tokens_data["gameVersions"]),
                         tokens_data['acc_token'],
                         tokens_data["user"]["name"],
                         tokens_data["user"]["uuid"])

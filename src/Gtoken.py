@@ -66,6 +66,7 @@ def get_minecraft_token(xsts_token, userhash):
     return response.json()["access_token"]
 
 # 检查游戏所有权
+'''
 def check_ownership(mc_token):
     url = "https://api.minecraftservices.com/entitlements/mcstore"
     headers = {"Authorization": f"Bearer {mc_token}"}
@@ -78,7 +79,7 @@ def get_player_profile(mc_token):
     headers = {"Authorization": f"Bearer {mc_token}"}
     response = requests.get(url, headers=headers)
     return response.json()
-
+'''
 def start(ms_token):
 
     # Xbox Live
