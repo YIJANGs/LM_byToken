@@ -32,7 +32,7 @@ Minecraft 正版验证Token用于验证您是否为正版验证。
 }
 ```
 - 其中，`user`参数中的`name`为您的Minecraft档案名；`uuid`为您的Minecraft账号的uuid，**不包含"-"连字符**，可在[这里](https://mcuuid.net)查询。
-- 其中，`acc_token`参数为您的Minecraft登录token而非Microsoft登录token；`ref_token`参数为您的Microsoft登录token，若您不知道您的登录token，可以直接留空。
+- 其中，`acc_token`参数为您的Minecraft登录token而非Microsoft登录token；`ref_token`参数为您的Microsoft刷新token，若您不知道您的登录token，可以直接留空。
 - `gameVersions`参数为您要启动的Minecraft版本（名称），这一参数为您的版本文件夹所在的目录，或您的Minecraft`.jar`文件的名称，不包含".jar"。
 - `Dirs`参数中为此工具需要（或启动Minecraft需要）的文件路径，以下是获取方法及示例。
 
