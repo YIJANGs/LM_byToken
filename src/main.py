@@ -1,6 +1,6 @@
-import Gtoken
+import gettoken.Gtoken as Gtoken
 import json
-import launch
+import Launch.launch as launch
 
 
 def savetokens(tokens_data, token_file="./tokens.json"):
@@ -12,7 +12,7 @@ def savetokens(tokens_data, token_file="./tokens.json"):
     with open(token_file, 'w', encoding='utf-8') as f:
         json.dump(tokens_data, f, indent=4, ensure_ascii=False)
 
-def gettoken(options):
+def _gettoken(options):
     from urllib.parse import urlparse, parse_qs
     print("请访问以下 URL 获取 code：")
     print("https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize?client_id=00000000402b5328&response_type=code&redirect_uri=https://login.live.com/oauth20_desktop.srf&scope=XboxLive.Signin%20offline_access&prompt=select_account")
@@ -61,7 +61,7 @@ def checkTokens(t, options):
         if t["acc_token"] != '':
             return t
         else:
-            acc_token, ref_token = gettoken(options)
+            acc_token, ref_token = _gettoken(options)
             t['acc_token'] = acc_token
             t['ref_token'] = ref_token
             
@@ -126,12 +126,12 @@ if __name__ == "__main__":
                         tokens_data["user"]["uuid"])
         
     if options_data['launch_thenCleanbat']:
-        bat_clean = open("launch.bat", "w")
+        bat_clean = open(".\Launch\launch.bat", "w")
         bat_clean.write("")
         bat_clean.close()
             
     if options_data['launch_thenRefreshToken']:
-        tokens_data["acc_token"], tokens_data["ref_token"] = gettoken(options_data)
+        tokens_data["acc_token"], tokens_data["ref_token"] = _gettoken(options_data)
         savetokens(tokens_data)
 
 

@@ -49,9 +49,9 @@ class Launch:
         self.bat += f"--accessToken {self.acc_token} "
         self.bat += "--userType msa "
 
-        self.bat_file = open("launch.bat", "w")
+        self.bat_file = open(".\Launch\launch.bat", "w")
         self.bat_file.write(self.bat)
         self.bat_file.close()
 
-        system("launch.bat")
+        system(".\Launch\launch.bat")
         
